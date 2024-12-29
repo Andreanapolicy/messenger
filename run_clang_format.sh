@@ -1,3 +1,3 @@
 #!/bin/bash
 
-clang-format --verbose -i --style=file ./src/main.cpp ./src/**/*.h ./src/**/*.cpp
+find ./src/ -iname '*.h' -o -iname '*.cpp' -not -path "*/build/*" | xargs clang-format --verbose -i --style=file
