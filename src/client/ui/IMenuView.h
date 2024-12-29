@@ -37,7 +37,7 @@ public:
 
 	virtual ~IMenuView() = default;
 
-	virtual void Start() = 0;
+	virtual void HandleCommand() = 0;
 
 	virtual Connection DoOnCommand(const MenuCommandSlot& handler) = 0;
 };
