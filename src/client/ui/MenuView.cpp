@@ -39,6 +39,10 @@ void MenuView::HandleCommand()
 	{
 		it->second(data);
 	}
+	else
+	{
+		m_onCommand(std::move(MenuCommandParams{ MenuCommand::Unknown, "" }));
+	}
 }
 
 Connection MenuView::DoOnCommand(const MenuCommandSlot& handler)

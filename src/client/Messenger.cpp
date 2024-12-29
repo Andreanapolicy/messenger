@@ -24,6 +24,20 @@ void Messenger::Start()
 void Messenger::OnCommand(ui::MenuCommandParams&& params)
 {
 	// TODO: do some actions
-	std::cout << "command " << static_cast<int>(params.GetCommand()) << " and data " << params.GetData() << std::endl;
+	switch (params.GetCommand())
+	{
+	case ui::MenuCommand::Exit:
+		m_menuView.reset();
+		break;
+	case ui::MenuCommand::ShowChats:
+		std::cout << "!> show-chats now is not available" << std::endl;
+		break;
+	case ui::MenuCommand::OpenChat:
+		std::cout << "!> open-chat now is not available" << std::endl;
+		break;
+	default:
+		std::cout << "!> now a command. Use <:help>" << std::endl;
+		break;
+	}
 }
 } // namespace client
