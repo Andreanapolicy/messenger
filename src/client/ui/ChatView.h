@@ -8,8 +8,8 @@ class ChatView : public IChatView
 public:
 	ChatView();
 
-    void Draw() const override;
+	void Draw() const override;
 
-    void SetChat() override;
+	void SetChat() override;
 };
 } // namespace client::ui

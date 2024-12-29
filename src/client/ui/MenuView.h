@@ -15,6 +15,6 @@ public:
 	Connection DoOnCommand(const MenuCommandSlot& handler) override;
 
 private:
-    MenuCommandSignal m_onCommand;
+	MenuCommandSignal m_onCommand;
 };
 } // namespace client::ui

@@ -1,5 +1,5 @@
-#include "../pch.h"
 #include "MenuView.h"
+#include "../pch.h"
 #include <iostream>
 
 namespace client::ui
@@ -11,12 +11,11 @@ MenuView::MenuView()
 
 void MenuView::Draw() const
 {
-
 }
 
 void MenuView::Start()
 {
-    std::cout << "Menu" << std::endl;
+	std::cout << "Menu" << std::endl;
 }
 
 Connection MenuView::DoOnCommand(const MenuCommandSlot& handler)
