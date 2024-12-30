@@ -6,9 +6,10 @@
 
 namespace client
 {
-Messenger::Messenger()
+Messenger::Messenger(app::IPostServiceUniquePtr postService)
 	: m_chatView{ std::make_unique<ui::ChatView>() }
 	, m_menuView{ std::make_unique<ui::MenuView>() }
+	, m_postService{ std::move(postService) }
 {
 	m_onCommand = m_menuView->DoOnCommand(std::bind_front(&Messenger::OnCommand, this));
 }
@@ -36,7 +37,7 @@ void Messenger::OnCommand(ui::MenuCommandParams&& params)
 		std::cout << "!> you opened chat" << std::endl;
 		break;
 	case ui::MenuCommand::Message:
-		std::cout << "!> your message " << params.GetData() << " will be sent very soon" << std::endl;
+		m_postService->SendMesssage(app::MessageData{ params.GetData() });
 		break;
 	case ui::MenuCommand::Unknown:
 	default:

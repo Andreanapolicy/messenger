@@ -7,7 +7,13 @@ project(client VERSION ${PROJECT_VERSION})
 
 add_executable(client main.cpp)
 
-file(GLOB_RECURSE ENDF6_SRC ${PROJECT_SOURCE_DIR} ui/*.h ui/*.cpp Messenger.h Messenger.cpp pch.h ../Common/signals/Signals.h)
+file(GLOB_RECURSE ENDF6_SRC ${PROJECT_SOURCE_DIR} 
+    ui/*.h ui/*.cpp 
+    app/*.h app/*.cpp 
+    infrastructure/*.h infrastructure/*.cpp 
+    Messenger.h Messenger.cpp 
+    pch.h 
+    ../Common/signals/Signals.h)
 
 add_library(client_lib ${ENDF6_SRC})
 find_package(Boost 1.74.0 COMPONENTS program_options regex filesystem REQUIRED )
