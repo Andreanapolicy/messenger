@@ -7,9 +7,9 @@ namespace client::ui
 {
 
 MenuView::MenuView()
-	: m_actionMap({ { ":show-chats", [this](const std::string& data) { m_onCommand(std::move(MenuCommandParams{ MenuCommand::ShowChats, data })); } },
-		{ ":open-chat", [this](const std::string& data) { m_onCommand(std::move(MenuCommandParams{ MenuCommand::OpenChat, data })); } },
-		{ ":exit", [this](const std::string&) { m_onCommand(std::move(MenuCommandParams{ MenuCommand::Exit, "" })); } },
+	: m_actionMap({ { ":show-chats", [this](const std::string& data) { m_onCommand(std::move(MenuCommandParams{ MenuCommand::ShowChats, data })); m_inChat = true; } },
+		{ ":open-chat", [this](const std::string& data) { m_onCommand(std::move(MenuCommandParams{ MenuCommand::OpenChat, data })); m_inChat = true; } },
+		{ ":exit", [this](const std::string&) { m_onCommand(std::move(MenuCommandParams{ MenuCommand::Exit, "" })); m_inChat = true; } },
 		{ ":help", [this](const std::string&) { Draw(); } } })
 {
 }
@@ -24,6 +24,8 @@ void MenuView::Draw() const
 
 void MenuView::HandleCommand()
 {
+	// todo: user will have name and "you>" should delegate to some entity view, like user view
+	std::cout << "you> ";
 	std::string commandLine;
 	std::getline(std::cin, commandLine);
 
@@ -38,6 +40,10 @@ void MenuView::HandleCommand()
 	if (it != m_actionMap.end())
 	{
 		it->second(data);
+	}
+	else if (m_inChat)
+	{
+		m_onCommand(std::move(MenuCommandParams{ MenuCommand::Message, commandLine }));
 	}
 	else
 	{

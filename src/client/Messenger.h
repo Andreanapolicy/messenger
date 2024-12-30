@@ -15,7 +15,6 @@ private:
 
 	std::unique_ptr<ui::IChatView> m_chatView;
 	std::unique_ptr<ui::IMenuView> m_menuView;
-	bool m_inChat = false;
 	Connection m_onCommand;
 };
 } // namespace client

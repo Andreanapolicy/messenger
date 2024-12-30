@@ -33,8 +33,12 @@ void Messenger::OnCommand(ui::MenuCommandParams&& params)
 		std::cout << "!> show-chats now is not available" << std::endl;
 		break;
 	case ui::MenuCommand::OpenChat:
-		std::cout << "!> open-chat now is not available" << std::endl;
+		std::cout << "!> you opened chat" << std::endl;
 		break;
+	case ui::MenuCommand::Message:
+		std::cout << "!> your message " << params.GetData() << " will be sent very soon" << std::endl;
+		break;
+	case ui::MenuCommand::Unknown:
 	default:
 		std::cout << "!> now a command. Use <:help>" << std::endl;
 		break;

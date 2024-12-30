@@ -16,9 +16,10 @@ public:
 
 private:
 	using Handler = std::function<void(const std::string& data)>;
-	using ActionMap = std::map<std::string, Handler>;
+	using ActionMap = std::unordered_map<std::string, Handler>;
 
 	const ActionMap m_actionMap;
 	MenuCommandSignal m_onCommand;
+	bool m_inChat = false;
 };
 } // namespace client::ui
