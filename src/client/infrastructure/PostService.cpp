@@ -1,5 +1,7 @@
-#include "PostService.h"
+// clang-format off
 #include "../pch.h"
+// clang-format on
+#include "PostService.h"
 #include <iostream> // todo: delete
 
 namespace client::infrastructure
