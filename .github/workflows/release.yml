@@ -30,22 +30,12 @@ jobs:
           draft: false
           prerelease: false
       - name: Upload client
-        id: upload-release-client
+        id: upload-release-messenger
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{ env.WORK_DIR }}/client/client-0.0.${{ github.run_number }}-Linux.deb
-          asset_name: client-0.0.${{ github.run_number }}-Linux.deb
-          asset_content_type: application/vnd.debian.binary-package
-      - name: Upload server
-        id: upload-release-server
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{ env.WORK_DIR }}/server/server-0.0.${{ github.run_number }}-Linux.deb
-          asset_name: server-0.0.${{ github.run_number }}-Linux.deb
+          asset_path: ${{ env.WORK_DIR }}/messenger-0.0.${{ github.run_number }}-Linux.deb
+          asset_name: messenger-0.0.${{ github.run_number }}-Linux.deb
           asset_content_type: application/vnd.debian.binary-package

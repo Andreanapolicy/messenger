@@ -8,7 +8,6 @@ project(messenger VERSION ${PROJECT_VERSION})
 add_subdirectory(client)
 add_subdirectory(server)
 
-# Установите параметры для сборки
 set(CPACK_GENERATOR DEB)
 set(CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_VERSION_MAJOR}")
 set(CPACK_PACKAGE_VERSION_MINOR "${PROJECT_VERSION_MINOR}")
