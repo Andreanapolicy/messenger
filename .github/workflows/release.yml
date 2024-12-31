@@ -3,7 +3,7 @@ name: 'C++ CI'
 on: [push]
 
 env:
-  WORK_DIR: ./src/client
+  WORK_DIR: ./src
 
 jobs:
   build:
@@ -29,8 +29,8 @@ jobs:
           release_name: Release ${{ github.run_number }}
           draft: false
           prerelease: false
-      - name: Upload Release Asset
-        id: upload-release-asset
+      - name: Upload client
+        id: upload-release-client
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -38,4 +38,14 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ${{ env.WORK_DIR }}/client-0.0.${{ github.run_number }}-Linux.deb
           asset_name: client-0.0.${{ github.run_number }}-Linux.deb
+          asset_content_type: application/vnd.debian.binary-package
+      - name: Upload server
+        id: upload-release-server
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ${{ env.WORK_DIR }}/server-0.0.${{ github.run_number }}-Linux.deb
+          asset_name: server-0.0.${{ github.run_number }}-Linux.deb
           asset_content_type: application/vnd.debian.binary-package
