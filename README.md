@@ -1,4 +1,4 @@
-# Messenger with out GUI
+# Messenger without GUI
 This is my final project of OTUS courses.
 
 ## Description
