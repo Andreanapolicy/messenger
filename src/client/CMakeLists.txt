@@ -13,7 +13,7 @@ file(GLOB_RECURSE ENDF6_SRC ${PROJECT_SOURCE_DIR}
     infrastructure/*.h infrastructure/*.cpp 
     Messenger.h Messenger.cpp 
     pch.h 
-    ../Common/signals/Signals.h)
+    ../Common/**/*.h ../Common/**/*.cpp)
 
 add_library(client_lib ${ENDF6_SRC})
 find_package(Boost 1.74.0 COMPONENTS program_options regex filesystem REQUIRED )
