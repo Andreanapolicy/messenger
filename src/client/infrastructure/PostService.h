@@ -14,5 +14,7 @@ public:
 	void SendMesssage(app::MessageData data) override;
 
 private:
+	struct Impl;
+	std::shared_ptr<Impl> m_impl;
 };
 } // namespace client::infrastructure

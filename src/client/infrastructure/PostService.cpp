@@ -2,38 +2,165 @@
 #include "../pch.h"
 // clang-format on
 #include "PostService.h"
-#include <iostream> // todo: delete
-
-#include <cstring>
-#include <netinet/in.h>
-#include <sys/socket.h>
-#include <unistd.h>
+#include "../../common/infrastructure/ChatMessage.h"
+#include <boost/asio.hpp>
+#include <cstdlib>
+#include <deque>
+#include <iostream>
+#include <optional>
+#include <thread>
 
 namespace client::infrastructure
 {
+
+using boost::asio::ip::tcp;
+using common::infrastructure::ChatMessage;
+
+using ChatMessageQueue = std::deque<ChatMessage>;
+
+class Client
+{
+public:
+	Client(boost::asio::io_context& ioContext,
+		tcp::resolver::iterator endpointIterator)
+		: m_ioContext(ioContext)
+		, m_socket(ioContext)
+	{
+		DoConnect(endpointIterator);
+	}
+
+	void Write(const ChatMessage& msg)
+	{
+		boost::asio::post(m_ioContext, [this, msg]() {
+			bool write_in_progress = !m_messageQueue.empty();
+			m_messageQueue.push_back(msg);
+			if (!write_in_progress)
+			{
+				DoWrite();
+			}
+		});
+	}
+
+	void Close()
+	{
+		m_ioContext.post([this]() { m_socket.close(); });
+	}
+
+private:
+	void DoConnect(tcp::resolver::iterator endpointIterator)
+	{
+		boost::asio::async_connect(
+			m_socket, endpointIterator,
+			[this](boost::system::error_code ec, tcp::resolver::iterator) {
+				if (!ec)
+				{
+					DoReadHeader();
+				}
+			});
+	}
+
+	void DoReadHeader()
+	{
+		boost::asio::async_read(
+			m_socket,
+			boost::asio::buffer(m_newMessage.GetData(), ChatMessage::HEADER_LENGTH),
+			[this](boost::system::error_code ec, std::size_t /*length*/) {
+				if (!ec && m_newMessage.DecodeHeader())
+				{
+					DoReadBody();
+				}
+				else
+				{
+					m_socket.close();
+				}
+			});
+	}
+
+	void DoReadBody()
+	{
+		boost::asio::async_read(
+			m_socket,
+			boost::asio::buffer(m_newMessage.GetBody(), m_newMessage.GetBodySize()),
+			[this](boost::system::error_code ec, std::size_t /*length*/) {
+				if (!ec)
+				{
+					std::cout << m_newMessage.GetBody() << std::endl;
+					DoReadHeader();
+				}
+				else
+				{
+					m_socket.close();
+				}
+			});
+	}
+
+	void DoWrite()
+	{
+		boost::asio::async_write(
+			m_socket,
+			boost::asio::buffer(m_messageQueue.front().GetData(),
+				m_messageQueue.front().GetSize()),
+			[this](boost::system::error_code ec, std::size_t /*length*/) {
+				if (!ec)
+				{
+					m_messageQueue.pop_front();
+					if (!m_messageQueue.empty())
+					{
+						DoWrite();
+					}
+				}
+				else
+				{
+					m_socket.close();
+				}
+			});
+	}
+
+private:
+	boost::asio::io_context& m_ioContext;
+	tcp::socket m_socket;
+	ChatMessage m_newMessage;
+	ChatMessageQueue m_messageQueue;
+};
+
+struct PostService::Impl
+{
+public:
+	Impl()
+		: m_client{ m_ioContext, tcp::resolver{ m_ioContext }.resolve({ "localhost", "8080" }) }
+		, m_thread{ [&]() { m_ioContext.run(); } }
+	{
+	}
+
+	~Impl()
+	{
+		m_client.Close();
+		m_thread.join();
+	}
+
+	void SendMesssage(app::MessageData data)
+	{
+		ChatMessage msg;
+		msg.SetBodySize(data.data.size());
+		std::memcpy(msg.GetBody(), data.data.c_str(), msg.GetBodySize());
+		msg.EncodeHeader();
+
+		m_client.Write(msg);
+	}
+
+private:
+	boost::asio::io_context m_ioContext;
+	Client m_client;
+	std::thread m_thread;
+};
+
 PostService::PostService()
+	: m_impl{ std::make_shared<Impl>() }
 {
 }
 
 void PostService::SendMesssage(app::MessageData data)
 {
-	// creating socket
-	int clientSocket = socket(AF_INET, SOCK_STREAM, 0);
-
-	// specifying address
-	sockaddr_in serverAddress;
-	serverAddress.sin_family = AF_INET;
-	serverAddress.sin_port = htons(8080);
-	serverAddress.sin_addr.s_addr = INADDR_ANY;
-
-	// sending connection request
-	connect(clientSocket, (struct sockaddr*)&serverAddress,
-		sizeof(serverAddress));
-
-	// sending data
-	send(clientSocket, data.data.c_str(), data.data.size(), 0);
-
-	// closing socket
-	close(clientSocket);
+	m_impl->SendMesssage(std::move(data));
 }
 } // namespace client::infrastructure
