@@ -46,6 +46,11 @@ public:
 		m_ioContext.post([this]() { m_socket.close(); });
 	}
 
+	Connection DoOnNewMessage(const PostService::NewMessageSlot& handler)
+	{
+		return m_onNewMessage.connect(handler);
+	}
+
 private:
 	void DoConnect(tcp::resolver::iterator endpointIterator)
 	{
@@ -84,7 +89,7 @@ private:
 			[this](boost::system::error_code ec, std::size_t /*length*/) {
 				if (!ec)
 				{
-					std::cout << m_newMessage.GetBody() << std::endl;
+					m_onNewMessage({ "stranger", m_newMessage.GetBody() });
 					DoReadHeader();
 				}
 				else
@@ -121,6 +126,7 @@ private:
 	tcp::socket m_socket;
 	ChatMessage m_newMessage;
 	ChatMessageQueue m_messageQueue;
+	PostService::NewMessageSignal m_onNewMessage;
 };
 
 struct PostService::Impl
@@ -136,6 +142,11 @@ public:
 	{
 		m_client.Close();
 		m_thread.join();
+	}
+
+	Connection DoOnNewMessage(const NewMessageSlot& handler)
+	{
+		return m_client.DoOnNewMessage(handler);
 	}
 
 	void SendMesssage(app::MessageData data)
@@ -162,5 +173,10 @@ PostService::PostService()
 void PostService::SendMesssage(app::MessageData data)
 {
 	m_impl->SendMesssage(std::move(data));
+}
+
+Connection PostService::DoOnNewMessage(const NewMessageSlot& handler)
+{
+	return m_impl->DoOnNewMessage(handler);
 }
 } // namespace client::infrastructure

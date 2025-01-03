@@ -12,6 +12,7 @@ public:
 	PostService& operator=(const PostService&) = delete;
 
 	void SendMesssage(app::MessageData data) override;
+	Connection DoOnNewMessage(const NewMessageSlot& handler) override;
 
 private:
 	struct Impl;
