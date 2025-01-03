@@ -1,0 +1,11 @@
+<map id="common/infrastructure/ChatMessage.cpp" name="common/infrastructure/ChatMessage.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="93,5,245,46"/>
+<area shape="rect" id="Node000002" href="$ChatMessage_8h.html" title=" " alt="" coords="5,94,117,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,49,91,87,88,82,141,44"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="141,94,197,120"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="172,46,172,78,166,78,166,46"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="222,94,282,120"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="191,44,230,81,226,85,188,48"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="31,168,91,193"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="64,120,64,152,58,152,58,120"/>
+</map>

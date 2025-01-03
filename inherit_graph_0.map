@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$classChatParticipant.html" title=" " alt="" coords="15,5,125,31"/>
+<area shape="rect" id="Node000001" href="$classChatSession.html" title=" " alt="" coords="183,35,278,60"/>
+<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="141,28,182,36,182,41,140,34"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,55,135,96"/>
+<area shape="poly" id="edge2_Node000002_Node000001" title=" " alt="" coords="149,59,182,53,183,58,150,64"/>
+</map>

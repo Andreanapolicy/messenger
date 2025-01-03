@@ -1,0 +1,5 @@
+<map id="client::ui::IMenuView" name="client::ui::IMenuView">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,140,137,247"/>
+<area shape="rect" id="Node000002" href="$classclient_1_1ui_1_1IDrawable.html" title=" " alt="" coords="10,5,132,92"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="74,107,74,141,69,141,69,107"/>
+</map>

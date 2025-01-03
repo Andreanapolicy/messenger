@@ -1,0 +1,5 @@
+<map id="ChatParticipant" name="ChatParticipant">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,133,92"/>
+<area shape="rect" id="Node000002" href="$classChatSession.html" title=" " alt="" coords="16,140,122,247"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="72,107,72,141,67,141,67,107"/>
+</map>

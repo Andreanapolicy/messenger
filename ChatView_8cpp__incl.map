@@ -1,0 +1,19 @@
+<map id="client/ui/ChatView.cpp" name="client/ui/ChatView.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="78,5,229,31"/>
+<area shape="rect" id="Node000002" href="$ChatView_8h.html" title=" " alt="" coords="61,79,148,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,33,123,68,119,65,143,30"/>
+<area shape="rect" id="Node000005" href="$pch_8h.html" title=" " alt="" coords="224,79,286,105"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="172,29,227,67,224,72,169,34"/>
+<area shape="rect" id="Node000003" href="$IChatView_8h.html" title=" " alt="" coords="5,153,97,178"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="98,106,71,142,67,138,93,103"/>
+<area shape="rect" id="Node000004" href="$IDrawable_8h.html" title=" " alt="" coords="6,226,96,252"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="54,179,54,211,48,211,48,179"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="120,153,198,178"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="240,107,189,146,185,141,237,103"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="221,153,289,178"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="258,105,258,137,252,137,252,105"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="312,153,366,178"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="271,103,315,140,312,144,268,107"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="390,153,448,178"/>
+<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="284,103,378,144,376,149,282,108"/>
+</map>
