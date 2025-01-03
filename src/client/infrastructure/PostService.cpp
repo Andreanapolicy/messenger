@@ -3,6 +3,7 @@
 // clang-format on
 #include "PostService.h"
 #include "../../common/infrastructure/ChatMessage.h"
+#include "../../common/infrastructure/ServerSettings.h"
 #include <boost/asio.hpp>
 #include <cstdlib>
 #include <deque>
@@ -14,6 +15,7 @@ namespace client::infrastructure
 {
 
 using boost::asio::ip::tcp;
+using namespace common::infrastructure;
 using common::infrastructure::ChatMessage;
 
 using ChatMessageQueue = std::deque<ChatMessage>;
@@ -133,7 +135,7 @@ struct PostService::Impl
 {
 public:
 	Impl()
-		: m_client{ m_ioContext, tcp::resolver{ m_ioContext }.resolve({ "localhost", "8080" }) }
+		: m_client{ m_ioContext, tcp::resolver{ m_ioContext }.resolve({ SERVER_HOST, std::to_string(SERVER_PORT) }) }
 		, m_thread{ [&]() { m_ioContext.run(); } }
 	{
 	}

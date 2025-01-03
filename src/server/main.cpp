@@ -1,4 +1,5 @@
 #include "../common/infrastructure/ChatMessage.h"
+#include "../common/infrastructure/ServerSettings.h"
 #include <boost/asio.hpp>
 #include <cstdlib>
 #include <deque>
@@ -9,6 +10,7 @@
 #include <utility>
 
 using boost::asio::ip::tcp;
+using namespace common::infrastructure;
 using common::infrastructure::ChatMessage;
 
 using ChatMessageQueue = std::deque<ChatMessage>;
@@ -20,19 +22,21 @@ public:
 	virtual void Deliver(const ChatMessage& msg) = 0;
 };
 
-typedef std::shared_ptr<ChatParticipant> ChatParticipant_ptr;
+typedef std::shared_ptr<ChatParticipant> ChatParticipantSharedPtr;
 
 class ChatRoom
 {
 public:
-	void Join(ChatParticipant_ptr participant)
+	static const int MAX_RECENT_MSGS = 100;
+
+	void Join(ChatParticipantSharedPtr participant)
 	{
 		m_participants.insert(participant);
 		for (auto msg : m_messageQueue)
 			participant->Deliver(msg);
 	}
 
-	void Leave(ChatParticipant_ptr participant)
+	void Leave(ChatParticipantSharedPtr participant)
 	{
 		m_participants.erase(participant);
 	}
@@ -40,19 +44,19 @@ public:
 	void Deliver(const ChatMessage& msg)
 	{
 		m_messageQueue.push_back(msg);
-		while (m_messageQueue.size() > max_recent_msgs)
+		while (m_messageQueue.size() > MAX_RECENT_MSGS)
+		{
 			m_messageQueue.pop_front();
+		}
 
 		for (auto participant : m_participants)
+		{
 			participant->Deliver(msg);
+		}
 	}
 
 private:
-	std::set<ChatParticipant_ptr> m_participants;
-	enum
-	{
-		max_recent_msgs = 100
-	};
+	std::set<ChatParticipantSharedPtr> m_participants;
 	ChatMessageQueue m_messageQueue;
 };
 
@@ -75,9 +79,9 @@ public:
 
 	void Deliver(const ChatMessage& msg)
 	{
-		bool write_in_progress = !m_messageQueue.empty();
+		bool WriteInProgress = !m_messageQueue.empty();
 		m_messageQueue.push_back(msg);
-		if (!write_in_progress)
+		if (!WriteInProgress)
 		{
 			DoWrite();
 		}
@@ -86,10 +90,10 @@ public:
 private:
 	void DoReadHeader()
 	{
-		auto self(shared_from_this());
+		auto self{ shared_from_this() };
 		boost::asio::async_read(m_socket,
 			boost::asio::buffer(m_currentMessage.GetData(), ChatMessage::HEADER_LENGTH),
-			[this, self](boost::system::error_code ec, std::size_t /*length*/) {
+			[this, self](boost::system::error_code ec, std::size_t) {
 				if (!ec && m_currentMessage.DecodeHeader())
 				{
 					DoReadBody();
@@ -103,10 +107,10 @@ private:
 
 	void DoReadBody()
 	{
-		auto self(shared_from_this());
+		auto self{ shared_from_this() };
 		boost::asio::async_read(m_socket,
 			boost::asio::buffer(m_currentMessage.GetBody(), m_currentMessage.GetBodySize()),
-			[this, self](boost::system::error_code ec, std::size_t /*length*/) {
+			[this, self](boost::system::error_code ec, std::size_t) {
 				if (!ec)
 				{
 					m_room.Deliver(m_currentMessage);
@@ -125,7 +129,7 @@ private:
 		boost::asio::async_write(m_socket,
 			boost::asio::buffer(m_messageQueue.front().GetData(),
 				m_messageQueue.front().GetSize()),
-			[this, self](boost::system::error_code ec, std::size_t /*length*/) {
+			[this, self](boost::system::error_code ec, std::size_t) {
 				if (!ec)
 				{
 					m_messageQueue.pop_front();
@@ -183,11 +187,11 @@ int main()
 	{
 		boost::asio::io_context ioContext;
 
-		ChatServer servers{ ioContext, tcp::endpoint{ tcp::v4(), 8080 } };
+		ChatServer servers{ ioContext, tcp::endpoint{ tcp::v4(), SERVER_PORT } };
 
 		ioContext.run();
 	}
-	catch (std::exception& e)
+	catch (const std::exception& e)
 	{
 		std::cerr << "Exception: " << e.what() << "\n";
 	}
