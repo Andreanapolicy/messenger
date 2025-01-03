@@ -13,10 +13,11 @@ public:
 
 private:
 	void OnCommand(ui::MenuCommandParams&& params);
+	void OnNewMessage(app::MessageData&& message);
 
 	std::unique_ptr<ui::IChatView> m_chatView;
 	std::unique_ptr<ui::IMenuView> m_menuView;
-	Connection m_onCommand;
+	std::array<Connection, 2> m_connections;
 	app::IPostServiceUniquePtr m_postService;
 };
 } // namespace client
