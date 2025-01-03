@@ -11,14 +11,13 @@
 
 using boost::asio::ip::tcp;
 using namespace common::infrastructure;
-using common::infrastructure::ChatMessage;
 
 using ChatMessageQueue = std::deque<ChatMessage>;
 
 class ChatParticipant
 {
 public:
-	virtual ~ChatParticipant() {}
+	virtual ~ChatParticipant() = default;
 	virtual void Deliver(const ChatMessage& msg) = 0;
 };
 
@@ -41,7 +40,7 @@ public:
 		m_participants.erase(participant);
 	}
 
-	void Deliver(const ChatMessage& msg)
+	void Deliver(const ChatMessage& msg, ChatParticipantSharedPtr sender)
 	{
 		m_messageQueue.push_back(msg);
 		while (m_messageQueue.size() > MAX_RECENT_MSGS)
@@ -51,6 +50,10 @@ public:
 
 		for (auto participant : m_participants)
 		{
+			if (participant == sender)
+			{
+				continue;
+			}
 			participant->Deliver(msg);
 		}
 	}
@@ -113,7 +116,7 @@ private:
 			[this, self](boost::system::error_code ec, std::size_t) {
 				if (!ec)
 				{
-					m_room.Deliver(m_currentMessage);
+					m_room.Deliver(m_currentMessage, self);
 					DoReadHeader();
 				}
 				else
