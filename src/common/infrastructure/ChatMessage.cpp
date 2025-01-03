@@ -1,6 +1,5 @@
 #include "ChatMessage.h"
 #include <cstdio>
-#include <cstdlib>
 #include <cstring>
 
 namespace common::infrastructure
