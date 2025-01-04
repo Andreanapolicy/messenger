@@ -31,8 +31,6 @@ public:
 	void Join(ChatParticipantSharedPtr participant)
 	{
 		m_participants.insert(participant);
-		for (auto msg : m_messageQueue)
-			participant->Deliver(msg);
 	}
 
 	void Leave(ChatParticipantSharedPtr participant)
@@ -162,11 +160,11 @@ public:
 		: m_acceptor(ioContext, endpoint)
 		, m_socket(ioContext)
 	{
-		do_accept();
+		DoAccept();
 	}
 
 private:
-	void do_accept()
+	void DoAccept()
 	{
 		m_acceptor.async_accept(m_socket,
 			[this](boost::system::error_code ec) {
@@ -175,7 +173,7 @@ private:
 					std::make_shared<ChatSession>(std::move(m_socket), m_room)->Start();
 				}
 
-				do_accept();
+				DoAccept();
 			});
 	}
 
