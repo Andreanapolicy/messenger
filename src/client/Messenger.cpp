@@ -3,6 +3,7 @@
 #include "ui/ChatView.h"
 #include "ui/MenuView.h"
 #include <iostream>
+#include <syncstream>
 
 namespace client
 {
@@ -21,6 +22,7 @@ void Messenger::Start()
 {
 	while (m_menuView)
 	{
+		std::osyncstream(std::cout) << "you> ";
 		m_menuView->HandleCommand();
 	}
 }
@@ -51,7 +53,8 @@ void Messenger::OnCommand(ui::MenuCommandParams&& params)
 
 void Messenger::OnNewMessage(app::MessageData&& message)
 {
-	std::cout << std::endl
-			  << message.from << "> " << message.data << std::endl;
+	std::osyncstream(std::cout) << std::endl
+								<< message.from << "> " << message.data << std::endl
+								<< "you> ";
 }
 } // namespace client
