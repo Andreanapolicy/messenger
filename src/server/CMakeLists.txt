@@ -28,7 +28,7 @@ set_target_properties(server server_lib PROPERTIES
 target_include_directories(server
     PRIVATE "${CMAKE_BINARY_DIR}"
 )
-target_include_directories(client PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/common/proto)
+target_include_directories(server PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/common/proto)
 
 target_compile_options(server PRIVATE
     -Wall -Wextra -pedantic -Werror
