@@ -41,11 +41,11 @@ void MenuView::HandleCommand()
 	}
 	else if (m_inChat)
 	{
-		m_onCommand(std::move(MenuCommandParams{ MenuCommand::Message, commandLine }));
+		m_onCommand(MenuCommandParams{ MenuCommand::Message, commandLine });
 	}
 	else
 	{
-		m_onCommand(std::move(MenuCommandParams{ MenuCommand::Unknown, "" }));
+		m_onCommand(MenuCommandParams{ MenuCommand::Unknown, "" });
 	}
 }
 
