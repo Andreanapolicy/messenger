@@ -6,7 +6,7 @@ class ChatMessage
 {
 public:
 	static const int HEADER_LENGTH = 4;
-	static const int MAX_BODY_LENGTH = 512;
+	static const int MAX_BODY_LENGTH = 1024;
 
 	ChatMessage() = default;
 
