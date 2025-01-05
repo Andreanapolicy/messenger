@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+message Message {
+  string fromUserName = 1;
+  string data = 2;
+}

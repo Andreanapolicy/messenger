@@ -5,6 +5,7 @@ set(PROJECT_VERSION 0.0.${PATCH_VERSION})
 
 project(messenger VERSION ${PROJECT_VERSION})
 
+add_subdirectory(common/proto)
 add_subdirectory(client)
 add_subdirectory(server)
 

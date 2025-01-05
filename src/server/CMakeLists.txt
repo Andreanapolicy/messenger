@@ -11,10 +11,14 @@ file(GLOB_RECURSE ENDF6_SRC ${PROJECT_SOURCE_DIR}
     ../common/**/*.h ../common/**/*.cpp)
 
 add_library(server_lib ${ENDF6_SRC})
-find_package(Boost 1.74.0 COMPONENTS program_options regex filesystem REQUIRED )
+
+find_package(Boost 1.74.0 COMPONENTS program_options regex filesystem REQUIRED)
+find_package(Protobuf REQUIRED)
+
+include_directories(${Protobuf_INCLUDE_DIRS})
 include_directories(${Boost_INCLUDE_DIR})
 
-target_link_libraries(server server_lib
+target_link_libraries(server server_lib proto
     ${Boost_LIBRARIES}
 )
 
