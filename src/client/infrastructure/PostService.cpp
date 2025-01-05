@@ -4,6 +4,7 @@
 #include "PostService.h"
 #include "../../common/infrastructure/ChatMessage.h"
 #include "../../common/infrastructure/ServerSettings.h"
+#include "../../common/proto/include.h"
 #include <boost/asio.hpp>
 #include <cstdlib>
 #include <deque>
@@ -91,7 +92,9 @@ private:
 			[this](boost::system::error_code ec, std::size_t /*length*/) {
 				if (!ec)
 				{
-					m_onNewMessage({ "stranger", m_newMessage.GetBody() });
+					messenger_proto::Message msg;
+					msg.ParseFromString(m_newMessage.GetBody());
+					m_onNewMessage({ msg.fromusername(), msg.data() });
 					DoReadHeader();
 				}
 				else
@@ -154,8 +157,13 @@ public:
 	void SendMesssage(app::MessageData data)
 	{
 		ChatMessage msg;
-		msg.SetBodySize(data.data.size());
-		std::memcpy(msg.GetBody(), data.data.c_str(), msg.GetBodySize());
+		messenger_proto::Message message;
+		message.set_data(data.data);
+		message.set_fromusername(data.from);
+		auto sendingData = message.SerializeAsString();
+
+		msg.SetBodySize(sendingData.size());
+		std::memcpy(msg.GetBody(), sendingData.c_str(), msg.GetBodySize());
 		msg.EncodeHeader();
 
 		m_client.Write(msg);
