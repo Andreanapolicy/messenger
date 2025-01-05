@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+package messenger_proto;
+
 message Message {
   string fromUserName = 1;
   string data = 2;

@@ -13,9 +13,7 @@ file(GLOB_RECURSE ENDF6_SRC ${PROJECT_SOURCE_DIR}
 add_library(server_lib ${ENDF6_SRC})
 
 find_package(Boost 1.74.0 COMPONENTS program_options regex filesystem REQUIRED)
-find_package(Protobuf REQUIRED)
 
-include_directories(${Protobuf_INCLUDE_DIRS})
 include_directories(${Boost_INCLUDE_DIR})
 
 target_link_libraries(server server_lib proto
@@ -30,6 +28,7 @@ set_target_properties(server server_lib PROPERTIES
 target_include_directories(server
     PRIVATE "${CMAKE_BINARY_DIR}"
 )
+target_include_directories(client PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/common/proto)
 
 target_compile_options(server PRIVATE
     -Wall -Wextra -pedantic -Werror

@@ -19,7 +19,7 @@ add_library(client_lib ${ENDF6_SRC})
 find_package(Boost 1.74.0 COMPONENTS program_options regex filesystem REQUIRED )
 include_directories(${Boost_INCLUDE_DIR})
 
-target_link_libraries(client client_lib
+target_link_libraries(client client_lib proto
     ${Boost_LIBRARIES}
 )
 
@@ -31,6 +31,8 @@ set_target_properties(client client_lib PROPERTIES
 target_include_directories(client
     PRIVATE "${CMAKE_BINARY_DIR}"
 )
+
+target_include_directories(client PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/common/proto)
 
 target_compile_options(client PRIVATE
     -Wall -Wextra -pedantic -Werror
