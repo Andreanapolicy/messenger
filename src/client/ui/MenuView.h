@@ -4,7 +4,7 @@
 namespace client::ui
 {
 
-class MenuView : public IMenuView
+class MenuView final : public IMenuView
 {
 public:
 	MenuView();

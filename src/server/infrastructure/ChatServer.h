@@ -4,7 +4,7 @@
 
 namespace server::infrastructure
 {
-class ChatServer
+class ChatServer final
 {
 public:
 	ChatServer(boost::asio::io_context& ioContext, const boost::asio::ip::tcp::endpoint& endpoint);

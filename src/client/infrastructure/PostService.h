@@ -3,7 +3,7 @@
 
 namespace client::infrastructure
 {
-class PostService : public app::IPostService
+class PostService final : public app::IPostService
 {
 public:
 	PostService();

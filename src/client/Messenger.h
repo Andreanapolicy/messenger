@@ -5,7 +5,7 @@
 
 namespace client
 {
-class Messenger
+class Messenger final
 {
 public:
 	explicit Messenger(app::IPostServiceUniquePtr postService);

@@ -3,7 +3,7 @@
 
 namespace common::infrastructure
 {
-class ChatMessage
+class ChatMessage final
 {
 public:
 	static const int HEADER_LENGTH = 4;

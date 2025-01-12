@@ -21,7 +21,7 @@ using common::infrastructure::ChatMessage;
 
 using ChatMessageQueue = std::deque<ChatMessage>;
 
-class Client
+class Client final
 {
 public:
 	Client(boost::asio::io_context& ioContext,

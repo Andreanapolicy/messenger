@@ -5,7 +5,7 @@
 
 namespace server::infrastructure
 {
-class ChatSession
+class ChatSession final
 	: public app::IChatSession
 	, public std::enable_shared_from_this<ChatSession>
 {

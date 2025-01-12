@@ -3,7 +3,7 @@
 
 namespace client::ui
 {
-class ChatView : public IChatView
+class ChatView final : public IChatView
 {
 public:
 	ChatView();
