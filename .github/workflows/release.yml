@@ -18,6 +18,7 @@ jobs:
       - run: sudo apt-get update && sudo apt-get install libboost-all-dev -y && sudo apt-get install protobuf-compiler -y && sudo apt-get install libgtest-dev -y && sudo apt-get install libgmock-dev -y
       - run: cmake . -DPATCH_VERSION=${{ github.run_number }}
       - run: cmake --build .
+      - run: ./server/server_test
       - run: cmake --build . --target package
       - name: Create Release
         id: create_release
