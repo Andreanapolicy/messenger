@@ -21,7 +21,7 @@ add_executable(server_test ${source})
 add_library(server_lib ${ENDF6_SRC})
 
 find_package(Boost 1.74.0 COMPONENTS program_options regex filesystem REQUIRED)
-find_package(GTest REQUIRED)
+find_package(GTest CONFIG REQUIRED COMPONENTS GTest GMock)
 
 include_directories(${Boost_INCLUDE_DIR})
 
@@ -43,11 +43,13 @@ target_include_directories(server PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/common/pro
 target_include_directories(server_test
     PRIVATE "${CMAKE_BINARY_DIR}" 
     PRIVATE "${GTEST_INCLUDE_DIRS}"
+    PRIVATE "${GMOCK_INCLUDE_DIRS}"
 )
 
 target_link_libraries(server_test server_lib
     ${Boost_LIBRARIES}
-    ${GTEST_BOTH_LIBRARIES}
+    GTest::gtest
+    GTest::gmock
 )
 
 target_compile_options(server PRIVATE
