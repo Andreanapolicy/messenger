@@ -11,7 +11,7 @@ class ChatSession
 {
 public:
 	ChatSession(boost::asio::ip::tcp::socket socket, app::ChatRoom& room);
-	
+
 	ChatSession(const ChatSession&) = delete;
 	ChatSession operator=(const ChatSession&) = delete;
 
