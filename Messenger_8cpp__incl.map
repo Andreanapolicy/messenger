@@ -1,0 +1,41 @@
+<map id="client/Messenger.cpp" name="client/Messenger.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="562,5,706,31"/>
+<area shape="rect" id="Node000002" href="$client_2pch_8h.html" title=" " alt="" coords="177,79,229,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="562,34,245,86,244,81,561,29"/>
+<area shape="rect" id="Node000007" href="$Messenger_8h.html" title=" " alt="" coords="397,79,492,105"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="602,34,491,76,490,71,601,29"/>
+<area shape="rect" id="Node000015" href="$ChatView_8h.html" title=" " alt="" coords="647,79,748,105"/>
+<area shape="poly" id="edge16_Node000001_Node000015" title=" " alt="" coords="646,29,679,66,675,69,642,33"/>
+<area shape="rect" id="Node000016" href="$MenuView_8h.html" title=" " alt="" coords="516,79,623,105"/>
+<area shape="poly" id="edge18_Node000001_Node000016" title=" " alt="" coords="625,33,592,69,588,66,621,29"/>
+<area shape="rect" id="Node000017" title=" " alt="" coords="773,79,844,105"/>
+<area shape="poly" id="edge20_Node000001_Node000017" title=" " alt="" coords="664,29,765,70,763,75,662,34"/>
+<area shape="rect" id="Node000018" title=" " alt="" coords="868,79,956,105"/>
+<area shape="poly" id="edge21_Node000001_Node000018" title=" " alt="" coords="682,29,854,73,852,78,680,34"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="256,153,334,178"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="220,103,269,141,266,145,217,107"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,153,73,178"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="177,107,82,149,80,144,175,102"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="96,153,150,178"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="191,107,149,144,146,140,188,103"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="174,153,232,178"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="206,105,206,137,200,137,200,105"/>
+<area shape="rect" id="Node000008" href="$IPostService_8h.html" title=" " alt="" coords="357,153,489,178"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="443,106,434,138,428,137,438,104"/>
+<area shape="rect" id="Node000012" href="$IChatView_8h.html" title=" " alt="" coords="648,153,753,178"/>
+<area shape="poly" id="edge11_Node000007_Node000012" title=" " alt="" coords="488,103,643,145,641,151,487,108"/>
+<area shape="rect" id="Node000014" href="$IMenuView_8h.html" title=" " alt="" coords="513,153,624,178"/>
+<area shape="poly" id="edge13_Node000007_Node000014" title=" " alt="" coords="467,103,536,142,533,147,464,108"/>
+<area shape="rect" id="Node000009" href="$Signals_8h.html" title=" " alt="" coords="495,226,631,267"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="446,176,516,216,514,221,443,181"/>
+<area shape="rect" id="Node000011" href="$MessageData_8h.html" title=" " alt="" coords="359,234,471,260"/>
+<area shape="poly" id="edge10_Node000008_Node000011" title=" " alt="" coords="424,179,420,219,415,218,419,178"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="498,315,628,341"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="566,267,566,299,560,299,560,267"/>
+<area shape="rect" id="Node000013" href="$IDrawable_8h.html" title=" " alt="" coords="656,234,745,260"/>
+<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="703,179,703,218,698,218,698,179"/>
+<area shape="poly" id="edge14_Node000014_Node000009" title=" " alt="" coords="570,179,568,211,563,211,565,179"/>
+<area shape="poly" id="edge15_Node000014_Node000013" title=" " alt="" coords="590,176,668,223,666,228,587,181"/>
+<area shape="poly" id="edge17_Node000015_Node000012" title=" " alt="" coords="701,105,702,137,697,137,695,105"/>
+<area shape="poly" id="edge19_Node000016_Node000014" title=" " alt="" coords="572,105,572,137,566,137,567,105"/>
+</map>

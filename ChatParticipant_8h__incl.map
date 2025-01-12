@@ -1,0 +1,9 @@
+<map id="server/app/ChatParticipant.h" name="server/app/ChatParticipant.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,191,31"/>
+<area shape="rect" id="Node000002" href="$ChatMessage_8h.html" title=" " alt="" coords="12,79,184,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,31,101,64,95,64,95,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="28,168,88,193"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="90,121,73,155,69,152,86,119"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="111,168,168,193"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="111,119,128,152,124,155,106,121"/>
+</map>

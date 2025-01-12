@@ -1,0 +1,9 @@
+<map id="server/app/IChatSession.h" name="server/app/IChatSession.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="67,5,241,31"/>
+<area shape="rect" id="Node000002" href="$ChatSession_8h.html" title=" " alt="" coords="85,79,223,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="157,46,157,79,151,79,151,46"/>
+<area shape="rect" id="Node000003" href="$ChatServer_8cpp.html" title=" " alt="" coords="5,168,143,208"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="128,133,94,169,90,165,124,129"/>
+<area shape="rect" id="Node000004" href="$ChatSession_8cpp.html" title=" " alt="" coords="167,168,304,208"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="185,129,219,165,215,169,181,133"/>
+</map>

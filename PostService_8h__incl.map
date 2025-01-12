@@ -1,0 +1,11 @@
+<map id="client/infrastructure/PostService.h" name="client/infrastructure/PostService.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="81,5,213,46"/>
+<area shape="rect" id="Node000002" href="$IPostService_8h.html" title=" " alt="" coords="76,94,218,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="150,46,150,78,144,78,144,46"/>
+<area shape="rect" id="Node000003" href="$Signals_8h.html" title=" " alt="" coords="5,168,142,208"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="138,122,104,158,100,154,134,118"/>
+<area shape="rect" id="Node000005" href="$MessageData_8h.html" title=" " alt="" coords="166,175,277,201"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="160,118,202,162,198,166,156,122"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="9,256,138,282"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="76,209,76,241,71,241,71,209"/>
+</map>
