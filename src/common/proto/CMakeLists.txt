@@ -8,7 +8,7 @@ set(PROTO_OUTPUT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 add_library(proto ${PROTO_SRCS} ${PROTO_HDRS})
 
 execute_process (
-    COMMAND bash -c "mkdir ${CMAKE_CURRENT_LIST_DIR}/generated"
+    COMMAND bash -c "mkdir -p ${CMAKE_CURRENT_LIST_DIR}/generated"
 )
 
 protobuf_generate(
