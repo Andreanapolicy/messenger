@@ -9,6 +9,9 @@ class ChatServer
 public:
 	ChatServer(boost::asio::io_context& ioContext, const boost::asio::ip::tcp::endpoint& endpoint);
 
+	ChatServer(const ChatServer&) = delete;
+	ChatServer operator=(const ChatServer&) = delete;
+
 private:
 	void DoAccept();
 
