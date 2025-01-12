@@ -12,9 +12,16 @@ file(GLOB_RECURSE ENDF6_SRC ${PROJECT_SOURCE_DIR}
     infrastructure/*.h infrastructure/*.cpp
     ../common/**/*.h ../common/**/*.cpp)
 
+
+file(GLOB_RECURSE source ${PROJECT_SOURCE_DIR} 
+    test/*.cpp)
+
+add_executable(server_test ${source})
+
 add_library(server_lib ${ENDF6_SRC})
 
 find_package(Boost 1.74.0 COMPONENTS program_options regex filesystem REQUIRED)
+find_package(GTest REQUIRED)
 
 include_directories(${Boost_INCLUDE_DIR})
 
@@ -22,7 +29,7 @@ target_link_libraries(server server_lib proto
     ${Boost_LIBRARIES}
 )
 
-set_target_properties(server server_lib PROPERTIES
+set_target_properties(server server_lib server_test PROPERTIES
     CXX_STANDARD 20
     CXX_STANDARD_REQUIRED ON
 )
@@ -30,13 +37,28 @@ set_target_properties(server server_lib PROPERTIES
 target_include_directories(server
     PRIVATE "${CMAKE_BINARY_DIR}"
 )
+
 target_include_directories(server PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/common/proto)
+
+target_include_directories(server_test
+    PRIVATE "${CMAKE_BINARY_DIR}" 
+    PRIVATE "${GTEST_INCLUDE_DIRS}"
+)
+
+target_link_libraries(server_test server_lib
+    ${Boost_LIBRARIES}
+    ${GTEST_BOTH_LIBRARIES}
+)
 
 target_compile_options(server PRIVATE
     -Wall -Wextra -pedantic -Werror
 )
 
 target_compile_options(server_lib PRIVATE
+    -Wall -Wextra -pedantic -Werror
+)
+
+target_compile_options(server_test PRIVATE
     -Wall -Wextra -pedantic -Werror
 )
 
@@ -48,3 +70,6 @@ set(CPACK_PACKAGE_VERSION_MINOR "${PROJECT_VERSION_MINOR}")
 set(CPACK_PACKAGE_VERSION_PATCH "${PROJECT_VERSION_PATCH}")
 set(CPACK_PACKAGE_CONTACT example@example.com)
 include(CPack)
+
+enable_testing()
+add_test(test server_test)
