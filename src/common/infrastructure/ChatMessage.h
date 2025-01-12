@@ -1,4 +1,5 @@
 #include <cstdlib>
+#include <deque>
 
 namespace common::infrastructure
 {
@@ -32,4 +33,6 @@ private:
 	char m_data[HEADER_LENGTH + MAX_BODY_LENGTH];
 	std::size_t m_bodyLength = 0;
 };
+
+using ChatMessageQueue = std::deque<ChatMessage>;
 } // namespace common::infrastructure

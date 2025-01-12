@@ -8,6 +8,8 @@ project(server VERSION ${PROJECT_VERSION})
 add_executable(server main.cpp)
 
 file(GLOB_RECURSE ENDF6_SRC ${PROJECT_SOURCE_DIR} 
+    app/*.h app/*.cpp
+    infrastructure/*.h infrastructure/*.cpp
     ../common/**/*.h ../common/**/*.cpp)
 
 add_library(server_lib ${ENDF6_SRC})
