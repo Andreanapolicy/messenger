@@ -13,6 +13,8 @@ public:
 	MOCK_METHOD(void, Deliver, (const ChatMessage&), (override));
 };
 
+using MockChatParticipantSharedPtr = std::shared_ptr<MockChatParticipant>;
+
 class ChatRoomTest : public testing::Test
 {
 protected:
@@ -26,10 +28,10 @@ protected:
 
 	ChatRoom chatRoom;
 
-	ChatParticipantSharedPtr user1 = std::make_shared<MockChatParticipant>();
-	ChatParticipantSharedPtr user2 = std::make_shared<MockChatParticipant>();
-	ChatParticipantSharedPtr user3 = std::make_shared<MockChatParticipant>();
-	ChatParticipantSharedPtr user4 = std::make_shared<MockChatParticipant>();
+	MockChatParticipantSharedPtr user1 = std::make_shared<MockChatParticipant>();
+	MockChatParticipantSharedPtr user2 = std::make_shared<MockChatParticipant>();
+	MockChatParticipantSharedPtr user3 = std::make_shared<MockChatParticipant>();
+	MockChatParticipantSharedPtr user4 = std::make_shared<MockChatParticipant>();
 	ChatMessage message;
 };
 
@@ -76,10 +78,37 @@ TEST_F(ChatRoomTest, NonExistingPartisipantLeavesFromRoom_ParticipantsCountWillN
 
 TEST_F(ChatRoomTest, DeliverMessageToNobody_ParticipantsWillNotBeNotificated)
 {
-	chatRoom.Deliver(message, user1);
+	EXPECT_CALL(*user1, Deliver).Times(0);
+	EXPECT_CALL(*user2, Deliver).Times(0);
+	EXPECT_CALL(*user3, Deliver).Times(0);
+	EXPECT_CALL(*user4, Deliver).Times(0);
 
-	EXPECT_CALL(user1, Deliver(message)).Times(0);
-	EXPECT_CALL(user2, Deliver(message)).Times(0);
-	EXPECT_CALL(user3, Deliver(message)).Times(0);
-	EXPECT_CALL(user4, Deliver(message)).Times(0);
+	chatRoom.Deliver(message, user1);
+}
+
+TEST_F(ChatRoomTest, DeliverMessageToParticipants_ParticipantsWillNotNotificated)
+{
+	chatRoom.Join(user1);
+	chatRoom.Join(user2);
+
+	EXPECT_CALL(*user1, Deliver).Times(1);
+	EXPECT_CALL(*user2, Deliver).Times(1);
+	EXPECT_CALL(*user3, Deliver).Times(0);
+	EXPECT_CALL(*user4, Deliver).Times(0);
+
+	chatRoom.Deliver(message, user3);
+}
+
+TEST_F(ChatRoomTest, DeliverMessageToParticipants_ParticipantsWillNotBeNotificatedButNotSender)
+{
+	chatRoom.Join(user1);
+	chatRoom.Join(user2);
+	chatRoom.Join(user3);
+	
+	EXPECT_CALL(*user1, Deliver).Times(1);
+	EXPECT_CALL(*user2, Deliver).Times(1);
+	EXPECT_CALL(*user3, Deliver).Times(0);
+	EXPECT_CALL(*user4, Deliver).Times(0);
+
+	chatRoom.Deliver(message, user3);
 }
