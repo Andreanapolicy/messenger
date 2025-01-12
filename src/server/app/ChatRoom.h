@@ -8,6 +8,8 @@ class ChatRoom
 public:
 	void Join(ChatParticipantSharedPtr participant);
 
+	size_t GetParticipantsCount() const;
+
 	void Leave(ChatParticipantSharedPtr participant);
 
 	void Deliver(const common::infrastructure::ChatMessage& msg, ChatParticipantSharedPtr sender);

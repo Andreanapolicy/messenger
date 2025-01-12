@@ -16,6 +16,11 @@ void ChatRoom::Join(ChatParticipantSharedPtr participant)
 	m_participants.insert(participant);
 }
 
+size_t ChatRoom::GetParticipantsCount() const
+{
+	return m_participants.size();
+}
+
 void ChatRoom::Leave(ChatParticipantSharedPtr participant)
 {
 	m_participants.erase(participant);
