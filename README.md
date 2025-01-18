@@ -29,3 +29,21 @@ After that in build dir will be two applications: `client` and `server`, and som
 
 ## Utils
 For more comfortable work with code style and coding convention was written script `run_clang_format.sh`
+
+## Architecture
+
+C4 context
+```mermaid
+    C4Context
+      title Messenger system
+      Person(customerA, "First user", "Just a user for messenger")
+	  System(Messenger, "Messenger", "Helps users to hang out staying home")
+      Person(customerB, "Second user", "Just a user for messenger")
+
+
+      Rel(customerA, Messenger, "Opens messenger and write")
+      Rel(Messenger, customerA, "Show new messages")
+
+      Rel(customerB, Messenger, "Opens messenger and write")
+      Rel(Messenger, customerB, "Show new messages")
+```
