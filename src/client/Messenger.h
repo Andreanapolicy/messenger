@@ -8,13 +8,14 @@ namespace client
 class Messenger final
 {
 public:
-	explicit Messenger(app::IPostServiceUniquePtr postService);
+	explicit Messenger(app::IPostServiceUniquePtr postService, std::ostream& output);
 	void Start();
 
 private:
 	void OnCommand(ui::MenuCommandParams&& params);
 	void OnNewMessage(app::MessageData&& message);
 
+	std::ostream& m_output;
 	std::unique_ptr<ui::IChatView> m_chatView;
 	std::unique_ptr<ui::IMenuView> m_menuView;
 	std::array<Connection, 2> m_connections;

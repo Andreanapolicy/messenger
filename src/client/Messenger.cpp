@@ -2,14 +2,13 @@
 #include "Messenger.h"
 #include "ui/ChatView.h"
 #include "ui/MenuView.h"
-#include <iostream>
-#include <syncstream>
 
 namespace client
 {
-Messenger::Messenger(app::IPostServiceUniquePtr postService)
-	: m_chatView{ std::make_unique<ui::ChatView>() }
-	, m_menuView{ std::make_unique<ui::MenuView>() }
+Messenger::Messenger(app::IPostServiceUniquePtr postService, std::ostream& output)
+	: m_output{ output }
+	, m_chatView{ std::make_unique<ui::ChatView>(m_output) }
+	, m_menuView{ std::make_unique<ui::MenuView>(m_output) }
 	, m_postService{ std::move(postService) }
 {
 	m_connections = {
@@ -22,7 +21,7 @@ void Messenger::Start()
 {
 	while (m_menuView)
 	{
-		std::osyncstream(std::cout) << "you> ";
+		std::osyncstream(m_output) << "you> ";
 		m_menuView->HandleCommand();
 	}
 }
@@ -35,26 +34,17 @@ void Messenger::OnCommand(ui::MenuCommandParams&& params)
 	case ui::MenuCommand::Exit:
 		m_menuView.reset();
 		break;
-	case ui::MenuCommand::ShowChats:
-		std::cout << "!> show-chats now is not available" << std::endl;
-		break;
-	case ui::MenuCommand::OpenChat:
-		std::cout << "!> you opened chat" << std::endl;
-		break;
 	case ui::MenuCommand::Message:
 		m_postService->SendMesssage(app::MessageData{ "first", params.GetData() });
 		break;
-	case ui::MenuCommand::Unknown:
 	default:
-		std::cout << "!> now a command. Use <:help>" << std::endl;
+		m_chatView->ShowMessage(params.GetCommand());
 		break;
 	}
 }
 
 void Messenger::OnNewMessage(app::MessageData&& message)
 {
-	std::osyncstream(std::cout) << std::endl
-								<< message.from << "> " << message.data << std::endl
-								<< "you> ";
+	m_chatView->ShowMessage(std::move(message));
 }
 } // namespace client

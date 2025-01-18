@@ -1,18 +1,9 @@
 #pragma once
 #include "../../common/signals/Signals.h"
-#include "IDrawable.h"
+#include "MenuCommand.h"
 
 namespace client::ui
 {
-
-enum class MenuCommand
-{
-	ShowChats, // show all available chats
-	OpenChat, // open selected chat
-	Exit, // exit from app
-	Message, // message
-	Unknown, // unknown command
-};
 
 struct MenuCommandParams
 {
@@ -31,7 +22,7 @@ private:
 	MenuCommand m_command;
 };
 
-class IMenuView : public IDrawable
+class IMenuView
 {
 public:
 	using MenuCommandSignal = boost::signals2::signal<void(MenuCommandParams)>;

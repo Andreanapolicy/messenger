@@ -6,10 +6,12 @@ namespace client::ui
 class ChatView final : public IChatView
 {
 public:
-	ChatView();
+	ChatView(std::ostream& output);
 
-	void Draw() const override;
+	void ShowMessage(app::MessageData&& message) override;
+	void ShowMessage(MenuCommand command) override;
 
-	void SetChat() override;
+private:
+	std::ostream& m_output;
 };
 } // namespace client::ui

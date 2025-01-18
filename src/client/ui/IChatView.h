@@ -1,13 +1,16 @@
 #pragma once
-#include "IDrawable.h"
+#include "../app/MessageData.h"
+#include "MenuCommand.h"
 
 namespace client::ui
 {
-class IChatView : public IDrawable
+class IChatView
 {
 public:
 	virtual ~IChatView() = default;
 
-	virtual void SetChat() = 0;
+	virtual void ShowMessage(app::MessageData&& message) = 0;
+
+	virtual void ShowMessage(MenuCommand command) = 0;
 };
 } // namespace client::ui

@@ -7,7 +7,7 @@ int main()
 {
 	std::cout << "This is client app" << std::endl;
 	auto postService = std::make_unique<client::infrastructure::PostService>();
-	client::Messenger messenger{ std::move(postService) };
+	client::Messenger messenger{ std::move(postService), std::cout };
 	messenger.Start();
 
 	return 0;

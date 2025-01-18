@@ -6,20 +6,21 @@
 namespace client::ui
 {
 
-MenuView::MenuView()
-	: m_actionMap({ { ":show-chats", [this](const std::string& data) { m_onCommand(MenuCommandParams{ MenuCommand::ShowChats, data }); m_inChat = true; } },
-		{ ":oc", [this](const std::string& data) { m_onCommand(MenuCommandParams{ MenuCommand::OpenChat, data }); m_inChat = true; } },
-		{ ":exit", [this](const std::string&) { m_onCommand(MenuCommandParams{ MenuCommand::Exit, "" }); m_inChat = true; } },
-		{ ":help", [this](const std::string&) { Draw(); } } })
+MenuView::MenuView(std::ostream& output)
+	: m_output{ output }
+	, m_actionMap({ { ":show-chats", [this](const std::string& data) { m_onCommand(MenuCommandParams{ MenuCommand::ShowChats, data }); m_inChat = true; } },
+		  { ":oc", [this](const std::string& data) { m_onCommand(MenuCommandParams{ MenuCommand::OpenChat, data }); m_inChat = true; } },
+		  { ":exit", [this](const std::string&) { m_onCommand(MenuCommandParams{ MenuCommand::Exit, "" }); m_inChat = true; } },
+		  { ":help", [this](const std::string&) { Draw(); } } })
 {
 }
 
 void MenuView::Draw() const
 {
-	std::cout << ":show-chats - turn on engine" << std::endl;
-	std::cout << ":open-chat - turn off engine" << std::endl;
-	std::cout << ":exit <number> - set speed" << std::endl;
-	std::cout << ":help <number> - set gear" << std::endl;
+	std::osyncstream(m_output) << ":show-chats - turn on engine" << std::endl;
+	std::osyncstream(m_output) << ":open-chat - turn off engine" << std::endl;
+	std::osyncstream(m_output) << ":exit <number> - set speed" << std::endl;
+	std::osyncstream(m_output) << ":help <number> - set gear" << std::endl;
 }
 
 void MenuView::HandleCommand()
