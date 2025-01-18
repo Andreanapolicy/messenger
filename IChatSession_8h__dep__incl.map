@@ -1,0 +1,15 @@
+<map id="server/app/IChatSession.h" name="server/app/IChatSession.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="92,5,266,31"/>
+<area shape="rect" id="Node000002" href="$ChatSession_8h.html" title=" " alt="" coords="196,79,333,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,40,245,77,242,81,201,44"/>
+<area shape="rect" id="Node000006" href="$ChatSessionFactory_8h.html" title=" " alt="" coords="19,79,171,120"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="157,44,118,81,114,77,154,40"/>
+<area shape="rect" id="Node000003" href="$ChatServer_8cpp.html" title=" " alt="" coords="196,168,333,208"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="267,135,267,167,262,167,262,135"/>
+<area shape="rect" id="Node000004" href="$ChatSession_8cpp.html" title=" " alt="" coords="357,168,494,208"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="316,125,391,165,388,170,313,130"/>
+<area shape="rect" id="Node000005" href="$ChatSessionFactory_8cpp.html" title=" " alt="" coords="5,168,172,208"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="212,129,129,170,127,165,210,125"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="148,125,227,165,225,170,146,129"/>
+<area shape="poly" id="edge7_Node000006_Node000005" title=" " alt="" coords="95,135,93,167,87,167,90,135"/>
+</map>

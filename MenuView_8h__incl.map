@@ -1,0 +1,11 @@
+<map id="client/ui/MenuView.h" name="client/ui/MenuView.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="79,5,220,31"/>
+<area shape="rect" id="Node000002" href="$IMenuView_8h.html" title=" " alt="" coords="101,79,198,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,31,152,63,147,63,147,31"/>
+<area shape="rect" id="Node000003" href="$Signals_8h.html" title=" " alt="" coords="5,153,142,193"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="140,107,105,143,101,140,136,103"/>
+<area shape="rect" id="Node000005" href="$MenuCommand_8h.html" title=" " alt="" coords="166,160,288,186"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="163,103,206,147,203,151,159,107"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="9,241,138,267"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="76,194,76,226,71,226,71,194"/>
+</map>

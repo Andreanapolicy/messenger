@@ -1,0 +1,9 @@
+<map id="server::infrastructure::ChatSession" name="server::infrastructure::ChatSession">
+<area shape="rect" id="Node000001" title=" " alt="" coords="119,275,247,437"/>
+<area shape="rect" id="Node000002" href="$classserver_1_1app_1_1IChatSession.html" title=" " alt="" coords="11,140,168,227"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,238,142,274,137,276,117,241"/>
+<area shape="rect" id="Node000003" href="$classserver_1_1app_1_1ChatParticipant.html" title=" " alt="" coords="5,5,174,92"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="92,107,92,140,87,140,87,107"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="192,143,360,224"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="250,238,229,276,224,274,245,236"/>
+</map>

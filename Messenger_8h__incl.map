@@ -1,0 +1,20 @@
+<map id="client/Messenger.h" name="client/Messenger.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="156,5,287,31"/>
+<area shape="rect" id="Node000002" href="$IPostService_8h.html" title=" " alt="" coords="156,79,287,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="224,31,224,63,219,63,219,31"/>
+<area shape="rect" id="Node000006" href="$IChatView_8h.html" title=" " alt="" coords="312,79,417,105"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="247,29,327,69,325,74,245,34"/>
+<area shape="rect" id="Node000008" href="$IMenuView_8h.html" title=" " alt="" coords="21,79,131,105"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="198,34,116,74,113,69,196,29"/>
+<area shape="rect" id="Node000003" href="$Signals_8h.html" title=" " alt="" coords="5,153,142,193"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="200,107,125,148,122,143,198,103"/>
+<area shape="rect" id="Node000005" href="$MessageData_8h.html" title=" " alt="" coords="312,160,424,186"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="245,103,333,150,331,155,243,107"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="9,241,138,267"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="76,194,76,226,71,226,71,194"/>
+<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="367,105,369,145,364,145,362,105"/>
+<area shape="rect" id="Node000007" href="$MenuCommand_8h.html" title=" " alt="" coords="166,160,288,186"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="345,107,263,154,260,150,342,103"/>
+<area shape="poly" id="edge9_Node000008_Node000003" title=" " alt="" coords="78,105,77,137,72,137,73,105"/>
+<area shape="poly" id="edge10_Node000008_Node000007" title=" " alt="" coords="100,103,192,150,189,155,98,107"/>
+</map>

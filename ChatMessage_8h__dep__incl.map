@@ -1,0 +1,38 @@
+<map id="common/infrastructure/ChatMessage.h" name="common/infrastructure/ChatMessage.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="359,5,511,46"/>
+<area shape="rect" id="Node000002" href="$PostService_8cpp.html" title=" " alt="" coords="108,94,240,135"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="362,54,234,96,232,91,360,49"/>
+<area shape="rect" id="Node000003" href="$ChatMessage_8cpp.html" title=" " alt="" coords="263,94,415,135"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="404,59,362,96,359,92,400,55"/>
+<area shape="rect" id="Node000004" href="$ChatParticipant_8h.html" title=" " alt="" coords="438,102,624,127"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="470,55,520,99,516,103,466,59"/>
+<area shape="rect" id="Node000016" href="$ChatMessage__tests_8cpp.html" title=" " alt="" coords="647,94,815,135"/>
+<area shape="poly" id="edge20_Node000001_Node000016" title=" " alt="" coords="518,48,664,91,663,96,516,53"/>
+<area shape="rect" id="Node000005" href="$ChatRoom_8h.html" title=" " alt="" coords="358,183,515,208"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="507,139,453,184,449,180,503,135"/>
+<area shape="rect" id="Node000015" href="$IChatSession_8h.html" title=" " alt="" coords="538,183,713,208"/>
+<area shape="poly" id="edge17_Node000004_Node000015" title=" " alt="" coords="559,135,613,180,609,184,555,139"/>
+<area shape="rect" id="Node000006" href="$ChatRoom_8cpp.html" title=" " alt="" coords="5,264,177,290"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="369,215,145,266,144,261,368,210"/>
+<area shape="rect" id="Node000007" href="$ChatServer_8h.html" title=" " alt="" coords="201,256,338,297"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="398,218,312,258,310,253,396,213"/>
+<area shape="rect" id="Node000010" href="$ChatSession_8h.html" title=" " alt="" coords="712,256,849,297"/>
+<area shape="poly" id="edge9_Node000005_Node000010" title=" " alt="" coords="505,210,700,254,712,257,711,262,698,259,504,215"/>
+<area shape="rect" id="Node000013" href="$ChatSessionFactory_8h.html" title=" " alt="" coords="535,256,687,297"/>
+<area shape="poly" id="edge13_Node000005_Node000013" title=" " alt="" coords="478,213,568,253,566,258,476,218"/>
+<area shape="rect" id="Node000014" href="$ChatRoom__tests_8cpp.html" title=" " alt="" coords="362,256,510,297"/>
+<area shape="poly" id="edge16_Node000005_Node000014" title=" " alt="" coords="439,224,439,256,434,256,434,224"/>
+<area shape="rect" id="Node000008" href="$ChatServer_8cpp.html" title=" " alt="" coords="450,345,588,386"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="341,300,463,342,461,347,340,305"/>
+<area shape="rect" id="Node000009" href="$server_2main_8cpp.html" title=" " alt="" coords="213,352,326,378"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="272,313,272,352,267,352,267,313"/>
+<area shape="poly" id="edge10_Node000010_Node000008" title=" " alt="" coords="707,305,579,347,578,342,706,300"/>
+<area shape="rect" id="Node000011" href="$ChatSession_8cpp.html" title=" " alt="" coords="802,345,940,386"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="813,306,852,343,849,346,810,310"/>
+<area shape="rect" id="Node000012" href="$ChatSessionFactory_8cpp.html" title=" " alt="" coords="612,345,778,386"/>
+<area shape="poly" id="edge12_Node000010_Node000012" title=" " alt="" coords="752,310,716,346,712,343,749,306"/>
+<area shape="poly" id="edge14_Node000013_Node000008" title=" " alt="" coords="581,310,542,347,538,343,577,306"/>
+<area shape="poly" id="edge15_Node000013_Node000012" title=" " alt="" coords="643,307,678,343,674,346,639,310"/>
+<area shape="poly" id="edge18_Node000015_Node000010" title=" " alt="" coords="664,213,743,253,741,258,662,218"/>
+<area shape="poly" id="edge19_Node000015_Node000013" title=" " alt="" coords="623,224,617,256,612,255,618,223"/>
+</map>

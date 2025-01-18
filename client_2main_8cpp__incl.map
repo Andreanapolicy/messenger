@@ -1,0 +1,39 @@
+<map id="client/main.cpp" name="client/main.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="544,5,652,31"/>
+<area shape="rect" id="Node000002" href="$client_2pch_8h.html" title=" " alt="" coords="238,79,291,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="544,34,307,84,306,79,543,29"/>
+<area shape="rect" id="Node000008" href="$Messenger_8h.html" title=" " alt="" coords="632,79,727,105"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="614,30,656,67,653,71,610,34"/>
+<area shape="rect" id="Node000016" href="$PostService_8h.html" title=" " alt="" coords="426,79,608,105"/>
+<area shape="poly" id="edge18_Node000001_Node000016" title=" " alt="" coords="586,34,543,71,540,67,582,30"/>
+<area shape="rect" id="Node000017" title=" " alt="" coords="752,79,823,105"/>
+<area shape="poly" id="edge20_Node000001_Node000017" title=" " alt="" coords="631,29,742,71,740,76,629,34"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="87,153,165,178"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="242,108,164,147,162,143,240,103"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="188,153,256,178"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="260,106,239,141,235,138,255,104"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="279,153,333,178"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="274,104,294,138,289,141,269,106"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="356,153,445,178"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="289,103,365,143,363,147,287,108"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="5,153,63,178"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="239,104,78,153,77,148,237,99"/>
+<area shape="rect" id="Node000009" href="$IPostService_8h.html" title=" " alt="" coords="468,153,600,178"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="656,108,574,148,571,143,654,103"/>
+<area shape="rect" id="Node000013" href="$IChatView_8h.html" title=" " alt="" coords="759,153,864,178"/>
+<area shape="poly" id="edge12_Node000008_Node000013" title=" " alt="" coords="703,103,777,143,775,147,700,108"/>
+<area shape="rect" id="Node000015" href="$IMenuView_8h.html" title=" " alt="" coords="624,153,734,178"/>
+<area shape="poly" id="edge15_Node000008_Node000015" title=" " alt="" coords="682,105,682,137,677,137,677,105"/>
+<area shape="rect" id="Node000010" href="$Signals_8h.html" title=" " alt="" coords="459,226,596,267"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="536,179,533,211,528,211,530,179"/>
+<area shape="rect" id="Node000012" href="$MessageData_8h.html" title=" " alt="" coords="620,234,731,260"/>
+<area shape="poly" id="edge11_Node000009_Node000012" title=" " alt="" coords="557,176,642,224,639,228,554,181"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="463,315,592,341"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="530,267,530,299,525,299,525,267"/>
+<area shape="poly" id="edge13_Node000013_Node000012" title=" " alt="" coords="792,181,711,228,708,223,789,176"/>
+<area shape="rect" id="Node000014" href="$MenuCommand_8h.html" title=" " alt="" coords="756,234,878,260"/>
+<area shape="poly" id="edge14_Node000013_Node000014" title=" " alt="" coords="815,179,817,218,812,219,809,179"/>
+<area shape="poly" id="edge16_Node000015_Node000010" title=" " alt="" coords="657,181,579,221,577,217,655,176"/>
+<area shape="poly" id="edge17_Node000015_Node000014" title=" " alt="" coords="702,176,784,223,781,228,699,181"/>
+<area shape="poly" id="edge19_Node000016_Node000009" title=" " alt="" coords="522,104,530,137,525,138,517,106"/>
+</map>
