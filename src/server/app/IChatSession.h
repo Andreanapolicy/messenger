@@ -10,4 +10,6 @@ public:
 
 	virtual ~IChatSession() = default;
 };
+
+using IChatSessionSharedPtr = std::shared_ptr<IChatSession>;
 } // namespace server::app

@@ -3,6 +3,7 @@
 // clang-format on
 #include "ChatServer.h"
 #include "ChatSession.h"
+#include "ChatSessionFactory.h"
 
 namespace server::infrastructure
 {
@@ -21,7 +22,7 @@ void ChatServer::DoAccept()
 		[this](boost::system::error_code ec) {
 			if (!ec)
 			{
-				std::make_shared<infrastructure::ChatSession>(std::move(m_socket), m_room)->Start();
+				ChatSessionFactory::CreateChatSession(std::move(m_socket), m_room)->Start();
 			}
 
 			DoAccept();
