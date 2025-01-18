@@ -14,4 +14,4 @@ app::IChatSessionSharedPtr ChatSessionFactory::CreateChatSession(
 {
 	return std::make_shared<ChatSession>(std::move(socket), room);
 }
-}
+} // namespace server::infrastructure

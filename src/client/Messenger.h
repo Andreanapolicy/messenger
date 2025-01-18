@@ -12,7 +12,7 @@ public:
 		app::IPostServiceUniquePtr postService,
 		std::ostream& output,
 		std::string clientName);
-	
+
 	void Start();
 
 private:

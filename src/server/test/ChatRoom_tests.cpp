@@ -1,8 +1,10 @@
+// clang-format off
 #include <memory>
 #include <set>
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 #include "../app/ChatRoom.h"
+// clang-format on
 
 using namespace server::app;
 using common::infrastructure::ChatMessage;
@@ -52,7 +54,7 @@ TEST_F(ChatRoomTest, AddToRoomAlreadyJoinedParticipants_ParticipantsCountWillNot
 {
 	chatRoom.Join(user1);
 	chatRoom.Join(user1);
-	
+
 	ASSERT_EQ(chatRoom.GetParticipantsCount(), 1);
 }
 
@@ -60,7 +62,7 @@ TEST_F(ChatRoomTest, LeaveFromRoom_ParticipantsCountWillDecrease)
 {
 	chatRoom.Join(user1);
 	chatRoom.Join(user2);
-	
+
 	chatRoom.Leave(user2);
 
 	ASSERT_EQ(chatRoom.GetParticipantsCount(), 1);
@@ -70,7 +72,7 @@ TEST_F(ChatRoomTest, NonExistingPartisipantLeavesFromRoom_ParticipantsCountWillN
 {
 	chatRoom.Join(user1);
 	chatRoom.Join(user2);
-	
+
 	chatRoom.Leave(user3);
 
 	ASSERT_EQ(chatRoom.GetParticipantsCount(), 2);
@@ -104,7 +106,7 @@ TEST_F(ChatRoomTest, DeliverMessageToParticipants_ParticipantsWillNotBeNotificat
 	chatRoom.Join(user1);
 	chatRoom.Join(user2);
 	chatRoom.Join(user3);
-	
+
 	EXPECT_CALL(*user1, Deliver).Times(1);
 	EXPECT_CALL(*user2, Deliver).Times(1);
 	EXPECT_CALL(*user3, Deliver).Times(0);

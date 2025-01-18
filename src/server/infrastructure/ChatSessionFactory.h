@@ -11,6 +11,5 @@ public:
 	static app::IChatSessionSharedPtr CreateChatSession(
 		boost::asio::ip::tcp::socket socket,
 		app::ChatRoom& room);
-	
 };
 } // namespace server::infrastructure
