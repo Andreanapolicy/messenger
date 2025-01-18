@@ -6,26 +6,26 @@ The messenger consists of two applications: server and client.
 Server listens on localhost:8080. To change the configuration, you need to change `/src/common/infrastructure/ServerSettings.h`
 
 ## Build
-First of all need to install all dependencies
-This step will be useless after including docker container for development.
+
+For build you need to install Docker
+
+After set bin directory
 ```bash
-sudo apt update
-sudo apt upgrade
-sudo apt-get update
-sudo apt-get install libboost-all-dev -y
-sudo apt-get install protobuf-compiler -y
-sudo apt-get install libgtest-dev -y
-sudo apt-get install libgmock-dev -y
+export PATH=~/Projects/desktop_releaser/bin:$PATH
+source ~/.bashrc
 ```
 
+Run for build
 ```bash
-cd src/`
-mkdir build
-cd build
-cmake ../
-cmake --build ./
+messenger-build.sh
 ```
-After that in build dir will be two applications: `client` and `server`, and some tests.
+
+Run for build and run tests
+```bash
+messenger-build-and-run-test.sh
+```
+
+After that in `src/build` dir will be two applications: `client` and `server`, and some tests.
 
 ## Utils
 For more comfortable work with code style and coding convention was written script `run_clang_format.sh`
