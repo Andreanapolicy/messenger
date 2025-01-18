@@ -5,8 +5,9 @@
 
 namespace client
 {
-Messenger::Messenger(app::IPostServiceUniquePtr postService, std::ostream& output)
+Messenger::Messenger(app::IPostServiceUniquePtr postService, std::ostream& output, std::string clientName)
 	: m_output{ output }
+	, m_clientName{ std::move(clientName) }
 	, m_chatView{ std::make_unique<ui::ChatView>(m_output) }
 	, m_menuView{ std::make_unique<ui::MenuView>(m_output) }
 	, m_postService{ std::move(postService) }
@@ -35,7 +36,7 @@ void Messenger::OnCommand(ui::MenuCommandParams&& params)
 		m_menuView.reset();
 		break;
 	case ui::MenuCommand::Message:
-		m_postService->SendMesssage(app::MessageData{ "first", params.GetData() });
+		m_postService->SendMesssage(app::MessageData{ m_clientName, params.GetData() });
 		break;
 	default:
 		m_chatView->ShowMessage(params.GetCommand());
